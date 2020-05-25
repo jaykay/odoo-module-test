@@ -2,9 +2,7 @@ FROM gitpod/workspace-postgres
                     
 USER gitpod
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN sudo apt-get -q update && #     sudo apt-get install -yq bastet && #     sudo rm -rf /var/lib/apt/lists/*
-#
-# More information: https://www.gitpod.io/docs/config-docker/
+RUN wget -O - https://nightly.odoo.com/odoo.key | sudo apt-key add - && \
+    echo "deb http://nightly.odoo.com/13.0/nightly/deb/ ./" sudo tee -a /etc/apt/sources.list.d/odoo.list > /dev/null && \
+    sudo apt-get update && \
+    sudo apt-get install odoo
