@@ -1,6 +1,6 @@
 tasks:
   - init: echo "Replace me with a build script for the project."
-    command: odoo-bin -r gitpod --addons-path=/workspace -d template1 -i base
+    command: odoo -r gitpod --addons-path=/workspace -d template1 -i base
 image:
   file: .gitpod.Dockerfile
 vscode:
